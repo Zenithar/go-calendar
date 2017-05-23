@@ -37,3 +37,14 @@ func New(name string, year int) (Calendar, error) {
 func (d *defaultCalendar) IsWorkingDay(day time.Time) (bool, bool, string) {
 	return d.wdFunc(day)
 }
+
+// -----------------------------------------------------------------------------
+
+// GetSupportedLocales returns all locales supported for calendar
+func GetSupportedLocales() []string {
+	res := []string{}
+	for l := range locales {
+		res = append(res, l)
+	}
+	return res
+}
